@@ -2,13 +2,14 @@ require "minitest/autorun"
 require_relative "../lib/product"
 require_relative "../lib/cart"
 require_relative "../lib/discount"
+require_relative "../config/discount_strategies"
 
 class CartTest < Minitest::Test
   def setup
     @green_tea = Product.new(code: "GR1", name: "Green Tea", price: 3.11)
     @strawberries = Product.new(code: "SR1", name: "Strawberries", price: 5.00)
     @coffee = Product.new(code: "CF1", name: "Coffee", price: 11.23)
-    @cart = Cart.new
+    @cart = Cart.new(DEFAULT_DISCOUNTS)
   end
 
   def test_should_add_products_to_the_cart
