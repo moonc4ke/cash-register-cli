@@ -68,20 +68,20 @@ Enhance functionality with new products and maintain code quality through testin
 
   ```ruby
   # In your product management context:
-  black_tea = Product.new(code: 'BT1', name: 'Black Tea', price: 2.50)
+  black_tea = Product.new(code: "BT1", name: "Black Tea", price: 2.50)
   ```
 
 - **Adding Unit Tests**: Ensure to write tests for any new functionality. Here's a concise example for testing a new product:
 
   ```ruby
-  require 'minitest/autorun'
-  require_relative '../lib/product'
+  require "minitest/autorun"
+  require_relative "../lib/product"
 
-  class ProductTest < MiniTest::Test
+  class ProductTest < Minitest::Test
     def test_black_tea_initialization
-      black_tea = Product.new(code: 'BT1', name: 'Black Tea', price: 2.50)
-      assert_equal 'BT1', black_tea.code
-      assert_equal 'Black Tea', black_tea.name
+      black_tea = Product.new(code: "BT1", name: "Black Tea", price: 2.50)
+      assert_equal "BT1", black_tea.code
+      assert_equal "Black Tea", black_tea.name
       assert_equal 2.50, black_tea.price
     end
   end
@@ -90,4 +90,3 @@ Enhance functionality with new products and maintain code quality through testin
 - **Modify Discount Rules**: Adapt `lib/discount.rb` for new products or changes in discounts, testing each adjustment.
 
 This approach ensures your application's functionality can grow while remaining robust and tested.
-
