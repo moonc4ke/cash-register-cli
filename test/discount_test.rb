@@ -2,7 +2,7 @@ require "minitest/autorun"
 require_relative "../lib/product"
 require_relative "../lib/discount"
 
-class DiscountTest < MiniTest::Test
+class DiscountTest < Minitest::Test
   def setup
     @green_tea = Product.new(code: "GR1", name: "Green Tea", price: 3.11)
     @strawberries = Product.new(code: "SR1", name: "Strawberries", price: 5.00)
