@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/cart'
+require_relative '../lib/product'
+require_relative '../lib/discount'
+require_relative '../config/discount_strategies'
+
+puts "Welcome to the Cash Register"
+cart = Cart.new(DEFAULT_DISCOUNTS)
+
+loop do
+  puts "Enter product code (GR1, SR1, CF1) or 'done' to finish:"
+  input = gets.chomp.downcase
+  break if input == 'done'
+  
+  product_details = {
+    'gr1' => { code: 'GR1', name: 'Green Tea', price: 3.11 },
+    'sr1' => { code: 'SR1', name: 'Strawberries', price: 5.00 },
+    'cf1' => { code: 'CF1', name: 'Coffee', price: 11.23 }
+  }
+
+  if product_details[input]
+    cart.add(Product.new(**product_details[input]))
+  else
+    puts "Unknown product code."
+  end
+end
+
+puts "Total price: #{'%.2f' % cart.total}€"
